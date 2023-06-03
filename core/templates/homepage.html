@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tienda en línea</title>
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a nuestra tienda en línea</h1>
+    </header>
+
+    <main>
+        <h2>Productos</h2>
+        {% for product in products %}
+        <div>
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description }}</p>
+            <p>Precio: {{ product.price }}</p>
+            <img src="{{ product.image }}" alt="{{ product.name }}">
+        </div>
+        {% endfor %}
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Tienda en línea</p>
+    </footer>
+</body>
+</html>
