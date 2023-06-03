@@ -1,28 +1,74 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <title>Tienda en línea</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQimportaciones - Tienda en Línea</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        /* Custom styles go here */
+    </style>
 </head>
+
 <body>
-    <header>
-        <h1>Bienvenido a nuestra tienda en línea</h1>
-    </header>
-
-    <main>
-        <h2>Productos</h2>
-        {% for product in products %}
-        <div>
-            <h3>{{ product.name }}</h3>
-            <p>{{ product.description }}</p>
-            <p>Precio: {{ product.price }}</p>
-            <img src="{{ product.image }}" alt="{{ product.name }}">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">JQimportaciones</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="/productos">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/carrito">Carrito</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cuenta">Cuenta</a>
+                    </li> -->
+                </ul>
+            </div>
         </div>
-        {% endfor %}
-    </main>
+    </nav>
 
-    <footer>
-        <p>&copy; 2023 Tienda en línea</p>
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <h1>Bienvenido a JQimportaciones</h1>
+        <p>Descubre una amplia gama de productos a excelentes precios.</p>
+        
+        <h2>Productos Destacados</h2>
+        <div class="row">
+            {% for product in products %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.title }}</h5>
+                        <p class="card-text">Precio: {{ product.price }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center py-3">
+        <div class="container">
+            &copy; 2023 JQimportaciones. Todos los derechos reservados.
+        </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Custom scripts go here
+    </script>
 </body>
+
 </html>
