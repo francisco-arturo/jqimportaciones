@@ -3,6 +3,8 @@ from .models import Product
 
 def homepage(request):
     products = Product.objects.all()
+    for product in products:
+        product.image = product.image.split(',')[0] if product.image else None
     return render(request, 'homepage.html', {'products': products})
 
 def product_detail(request, sku):
