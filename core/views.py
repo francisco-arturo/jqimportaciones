@@ -16,6 +16,12 @@ def product_detail(request, sku):
     images = product.image.split(',')
     return render(request, 'product.html', {'product': product, 'images': images})
 
+def search(request):
+    query = request.GET.get('query')
+    products = Product.objects.filter(name__icontains=query)
+    return render(request, 'search.html', {'products': products, 'query': query})
+
+
 def csv_upload(request):
     if request.method == 'POST':
         form = CsvUploadForm(request.POST, request.FILES)
