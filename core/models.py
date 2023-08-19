@@ -17,6 +17,11 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+    def price_in_pesos(self):
+        exchange_rate = ExchangeRate.objects.first()
+        if exchange_rate:
+            return self.price * exchange_rate.rate_to_pesos
+        return None
 
 class Order(models.Model):
     user = models.ForeignKey(User, related_name='orders', on_delete=models.CASCADE)
@@ -33,3 +38,12 @@ class OrderItem(models.Model):
 
     def __str__(self):
         return f'Order Item: {self.id}'
+
+class ExchangeRate(models.Model):
+    rate_to_pesos = models.DecimalField(max_digits=4, decimal_places=0)
+
+    @classmethod
+    def set_current_rate(cls, new_rate):
+        instance, created = cls.objects.get_or_create(pk=1)
+        instance.rate_to_pesos = new_rate
+        instance.save()

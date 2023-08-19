@@ -10,7 +10,8 @@
                 </a>
                 <div class="card-body">
                     <h6 class="card-title">{{ product.name }}</h6>
-                    <p class="card-text">${{ product.price }}</p>
+                    <!-- <p class="card-text">${{ product.price }}</p> -->
+                    <p class="card-text">${{ product.price_in_pesos | floatformat }}</p>
                 </div>
             </div>
         </div>
