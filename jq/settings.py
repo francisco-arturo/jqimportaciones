@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'jqimportaciones.urls'
+ROOT_URLCONF = 'jq.urls'
 
 TEMPLATES = [
     {
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'jqimportaciones.wsgi.application'
+WSGI_APPLICATION = 'jq.wsgi.application'
 
 
 # Database
