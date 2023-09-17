@@ -20,12 +20,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(v(cvf-&dxy4%mtm**h&ax35472=msuz9r)1n7j#+&)&+lko9f'
+SECRET_KEY = 'zk33zks6+ei3*5s&q4+@4_oai+qc7uik-ct$6-*2-n9wo40jb5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'jqimportaciones.com',
+]
 
 
 # Application definition
@@ -76,10 +79,15 @@ WSGI_APPLICATION = 'jq.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mydbname',  
+        'USER': 'myuser',  
+        'PASSWORD': 'mypassword',  
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
+
 
 
 # Password validation
@@ -116,9 +124,33 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media/'
+
+# # Ensure users are always using HTTPS
+# SECURE_SSL_REDIRECT = True
+
+# # Set this to True to avoid transmitting the session cookie over HTTP accidentally.
+# SESSION_COOKIE_SECURE = True
+
+# # Set this to True to avoid transmitting the CSRF cookie over HTTP accidentally.
+# CSRF_COOKIE_SECURE = True
+
+# # Prevents the browser from guessing the content type
+# SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# # Prevents clickjacking attacks
+# SECURE_BROWSER_XSS_FILTER = True
+
+# # The duration for which a browser should remember that a site is only to be accessed using HTTPS.
+# SECURE_HSTS_SECONDS = 3600 
+# SECURE_HSTS_PRELOAD = True
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
