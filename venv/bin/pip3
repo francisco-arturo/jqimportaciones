@@ -1,4 +1,4 @@
-#!/home/francisco/python/jqimportaciones/venv/bin/python3
+#!/home/fva/python/jqimportaciones/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
